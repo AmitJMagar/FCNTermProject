@@ -5,7 +5,7 @@ public abstract class Abstract_Packet {
 	protected int CHECK_SUM;		// Check_Sum of Packet
 	protected String CONTENT;		// Contents of Packet 
 	
-	
+	// Getters and Setters Method for Packet Instance Variables
 	public abstract int getSEQ_NO() ;
 	public abstract void setSEQ_NO() ;
 	public abstract int   getCHECK_SUM() ;
