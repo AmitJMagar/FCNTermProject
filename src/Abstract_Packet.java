@@ -1,5 +1,6 @@
+import java.io.Serializable;
 
-public abstract class Abstract_Packet {
+public abstract class Abstract_Packet implements Serializable {
 	
 	protected static int SEQ_NO=0; // Sequence Number of Packet
 	protected int CHECK_SUM;		// Check_Sum of Packet

@@ -1,13 +1,15 @@
+import java.io.Serializable;
+
 /**
  * Implementation of Reliable Transfer Protocol 3.0 in Java.
- * @author Amit j Magar
+ * @author Amit J Magar
  * Revision 1.0
  */
 
 
-public class Packet extends Abstract_Packet {
+public class Packet extends Abstract_Packet implements Serializable {
 	
-	
+	private int seq_no;
 	/**
 	 * Constructor for Packet Object for setting initialize instance
 	 * variable/
@@ -16,6 +18,8 @@ public class Packet extends Abstract_Packet {
 		
 		setCONTENT(content);
 		setSEQ_NO();
+		seq_no=SEQ_NO;
+		
 		setCHECK_SUM(content);
 		
 	}
@@ -33,7 +37,7 @@ public class Packet extends Abstract_Packet {
 	 * Getter method for SEQ_NO 
 	 */
 	public int getSEQ_NO() {
-		return this.SEQ_NO;
+		return seq_no;
 	}
 	
 	
