@@ -1,4 +1,3 @@
-import java.io.Serializable;
 
 /**
  * Implementation of Reliable Transfer Protocol 3.0 in Java.
@@ -7,7 +6,7 @@ import java.io.Serializable;
  */
 
 
-public class Packet extends Abstract_Packet implements Serializable {
+public class Packet extends Abstract_Packet {
 	
 	private int seq_no;
 	/**
