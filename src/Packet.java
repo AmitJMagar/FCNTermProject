@@ -8,16 +8,26 @@
 
 public class Packet extends Abstract_Packet {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5908158653886180155L;
 	private int seq_no;
 	/**
 	 * Constructor for Packet Object for setting initialize instance
 	 * variable/
 	 */
+	Packet(Packet p)
+	{
+		this.seq_no=p.seq_no;
+		this.CONTENT=p.CONTENT;
+		this.setCHECK_SUM(this.CONTENT);
+	}
+	
 	Packet(String content){
 		
 		setCONTENT(content);
 		setSEQ_NO();
-		seq_no=SEQ_NO;
 		
 		setCHECK_SUM(content);
 		
@@ -29,7 +39,8 @@ public class Packet extends Abstract_Packet {
 	 */
 	
 	public void setSEQ_NO() {
-		SEQ_NO=SEQ_NO==0?1:0;
+		seq_no=SEQ_NO==0?1:0;
+		SEQ_NO=seq_no;
 	} 
 	
 	/**
@@ -54,7 +65,7 @@ public class Packet extends Abstract_Packet {
 		int sum=0;
 		for(int i=0;i<content.length();i++)
 			sum+=content.charAt(i);
-		CHECK_SUM= sum;		
+		this.CHECK_SUM= sum;		
 	}
 	
 	/**
@@ -80,6 +91,19 @@ public class Packet extends Abstract_Packet {
 	protected void add_Error()
 	{
 		CHECK_SUM=CHECK_SUM+1;
+	}
+	
+	protected void rem_Error()
+	{
+		CHECK_SUM=CHECK_SUM-1;
+	}
+	
+	@Override
+	public String toString()
+	{
+		return "Sequence Number of Packet :"+this.seq_no+"\n"+
+				"Contents of Packet are :"+this.getCONTENT()+"\n"
+				+"Check Sum is :"+this.getCHECK_SUM()+"\n";
 	}
 	
 }
